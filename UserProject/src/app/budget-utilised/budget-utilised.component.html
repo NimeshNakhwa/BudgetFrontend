@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Budget Utilized</h2>
+  
+    <!-- Budget Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Budget Assigned</th>
+          <th>Budget Utilized</th>
+          <th>Actions</th> <!-- New Actions Column -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let budget of rawBudgets">
+          <td>{{ budget.budgetId }}</td>
+          <td>{{ budget.budgetAssigned }}</td>
+          <td>{{ budget.budgetUtilized }}</td>
+          <td>
+            <!-- Edit and Delete Buttons -->
+            <button (click)="openEditPopup(budget)">Edit</button>
+            <button (click)="deleteBudget(budget.budgetId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Edit Popup -->
+    <div class="popup" *ngIf="isEditPopupOpen">
+      <div class="popup-content">
+        <h3>Edit Budget</h3>
+      
+        <label for="editBudgetAssigned">Budget Assigned:</label>
+        <input type="number" id="editBudgetAssigned" [(ngModel)]="editBudget.budgetAssigned" />
+  
+        <label for="editBudgetUtilized">Budget Utilized:</label>
+        <input type="number" id="editBudgetUtilized" [(ngModel)]="editBudget.budgetUtilized" />
+  
+        <button (click)="saveEdit()">Save</button>
+        <button (click)="closeEditPopup()">Cancel</button>
+      </div>
+    </div>
+  </div>

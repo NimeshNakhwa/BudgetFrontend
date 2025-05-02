@@ -1,0 +1,10 @@
+footer {
+  background-color: #00c2ff;
+  color: white;
+  text-align: center;
+  padding: 0.7rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.85rem;
+}

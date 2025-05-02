@@ -1,0 +1,59 @@
+<div class="clubs-admin-container">
+  <header class="club-header">
+    <h2>Tech Fest 2025</h2>
+    <div class="nav-links">
+      <a routerLink="/">Home</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </header>
+
+  <section class="club-dashboard-content">
+    <h1 class="club-dashboard-title">Clubs Admin Dashboard</h1>
+    <p class="club-dashboard-subtitle">Manage clubs information</p>
+
+    <div class="club-search-container">
+      <input type="text" placeholder="Search..." [(ngModel)]="searchText">
+      <button type="button" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
+      <button type="button" class="club-add-btn" (click)="addClub()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 4px;">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+        Add Club
+      </button>
+    </div>
+
+    <table class="club-table">
+      <thead>
+        <tr>
+          <th>Club ID</th>
+          <th>Club Name</th>
+          <th>President Name</th>
+          <th>Contact</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let club of clubs">
+          <td>{{ club.id }}</td>
+          <td>{{ club.name }}</td>
+          <td>{{ club.president }}</td>
+          <td>{{ club.contact }}</td>
+          <td>{{ club.email }}</td>
+          <td>
+            <button class="club-action-btn" (click)="editClub(club.id)">Edit</button>
+            <button class="club-action-btn club-delete-btn" (click)="deleteClub(club.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="club-footer">
+    <p>© 2025 Tech Fest. All Rights Reserved.</p>
+  </footer>
+</div>
